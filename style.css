@@ -235,11 +235,12 @@ h2 {
   font-size: 9px;
 }
 
-.banner-logo {
-  height: auto;
-  width: 80px;
-}
 
+.banner-logo {
+  max-width: 200px;   /* You can try 220, 250, etc. */
+  height: auto;
+  flex-shrink: 0;     /* Prevents it from being squeezed smaller */
+}
 /* Tabellen im Ergebnis-PDF */
 
 .result-table {
@@ -389,4 +390,8 @@ h2 {
   .scale-label {
     font-size: 10px;
   }
+}
+.page-break-before {
+  break-before: page !important;         /* modern */
+  page-break-before: always !important;  /* older engines / html2pdf */
 }
