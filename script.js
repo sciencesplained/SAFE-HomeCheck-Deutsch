@@ -1,45 +1,54 @@
 // SAFE Home Check – Separation & Alone-Time Feelings Evaluation
-// Grundlogik für Fragebogen + PDF-Ausgabe
+// Fragebogen-Logik + PDF-Ausgabe
 
-// --- Daten: Abschnitt 1, Fragen 1–30 (aus deiner Excel uebernommen) ---
+// ----------------------
+// Abschnitt 1 – Fragen 1–30
+// ----------------------
+
+// 1–11: erster Teil Abschnitt 1
+// 12–30: Abschnitt 1 – fortgesetzt
 
 const abschnitt1Fragen = [
   { id: 1,  kategorie: "Furcht/Angst/Stres", text: "Winselt, bellt oder heult" },
-  { id: 2,  kategorie: "", text: "Laeuft hin und her, rastlos, entspannt sich nicht nicht" },
+  { id: 2,  kategorie: "", text: "Laeuft hin und her, rastlos, entspannt sich nicht" },
   { id: 3,  kategorie: "", text: "Zittert" },
   { id: 4,  kategorie: "", text: "Hechelt" },
   { id: 5,  kategorie: "", text: "Speichelt oder erbricht sich" },
   { id: 6,  kategorie: "", text: "Leckt sich oder beisst sich" },
-  { id: 7,  kategorie: "", text: "Ist extrem passiv – z.B. bleibt im Hundekorb oder auf seinem Platz, ohne wegzugehen" },
-  { id: 8,  kategorie: "", text: "Bleibt nahe an der Tuer von der du das Haus verlassen hast" },
-  { id: 9,  kategorie: "Fluchtversuche", text: "Springt hoch oder kratzt an der Tuer oder dem Tuerrahmen durch den du das Haus verlassen hast" },
-  { id: 10, kategorie: "", text: "Springt hoch oder kratzt an dem Fenster, durch den dein Hund dich hat weggehen sehen" },
-  { id: 11, kategorie: "", text: "Falls dein Hund in einer Hundebox ist: Kratzt oder beisst an der Hundebox, dem Gitter, Boden oder den Waenden  oder versucht, sich herauszudraengen" },
+  { id: 7,  kategorie: "", text: "Ist sehr passiv (ist auffallend still / bewegt sich ueber lange Zeitraeume nicht)" },
+  { id: 8,  kategorie: "", text: "Bleibt nahe an der Tuer, durch die du das Haus verlassen hast" },
+  { id: 9,  kategorie: "Fluchtversuche", text: "Springt hoch oder kratzt an der Tuer oder dem Tuerrahmen, durch den du das Haus verlassen hast" },
+  { id: 10, kategorie: "", text: "Springt hoch oder kratzt an dem Fenster, durch das dein Hund dich hat weggehen sehen" },
+  { id: 11, kategorie: "", text: "Falls dein Hund in einer Hundebox ist: Kratzt oder beisst an der Hundebox, dem Gitter, Boden oder den Waenden oder versucht, sich herauszudraengen" },
+
   { id: 12, kategorie: "Zerstoerung von Gegenstaenden", text: "Nimmt kleine oder mittelgrosse Gegenstaende ins Maul oder kaut sie" },
   { id: 13, kategorie: "", text: "Nimmt kleine oder mittelgrosse Gegenstaende ins Maul und spielt mit ihnen, mit oder ohne Zerstoerung" },
   { id: 14, kategorie: "", text: "Kratzt oder kaut grosse, weiche Gegenstaende, z.B. Sofa oder Kissen" },
+
   { id: 15, kategorie: "Urin-und Kotabsatz", text: "Setzt Urin im Haus ab" },
   { id: 16, kategorie: "", text: "Setzt Kot im Haus ab" },
-  { id: 17, kategorie: "Reaktion auf aeussere Reize (z.B. Menschen, Hunde, Katzen, Geraeusche). Wenn moeglich, notiere worauf dein Hund reagiert", text: "Als Reaktion auf aussere Reize:\nErschreckt sich und beruhigt sich nicht innerhalb von wenigen Minuten" },
-  { id: 18, kategorie: "", text: "Als Reaktion auf aussere Reize:\nWinselt, bellt oder heult fuer mehrer Minuten" },
-  { id: 19, kategorie: "", text: "Als Reaktion auf aussere Reize:\nNimmt kleine oder mittelgrosse Gegenstaende ins Maul" },
-  { id: 20, kategorie: "", text: "Als Reaktion auf aussere Reize:\nKratzt oder kaut grosse, weiche Gegenstaende, z.B. Sofa oder Kissen" },
-  { id: 21, kategorie: "", text: "Als Reaktion auf aussere Reize:\nSpringt hoch an Fenster oder Tuer oder kratzt" },
-  { id: 22, kategorie: "Fressverhalten", text: "Frisst Futter in der Wohnung, waehrend du ausser Haus waere (z.B. Futter aus einem Futterspielzeug oder Kaustange)" },
-  { id: 23, kategorie: "", text: "Waehrend des Fressens in meiner Abwesenheit scheint mein Hund entspannt zu sein. Wenn fertig mit Fressen, zeigt Furcht, Angst, Stress" },
-  { id: 24, kategorie: "Andere Ursachen", text: "Urin- oder Kotabsatz in der Wohnung tritt nicht nur auf wenn dein Hund alleine ist, sondern auch, wenn du zu Hause bist " },
-  { id: 25, kategorie: "", text: "Zerstoert Gegenstaende, sowohl wenn dein Hund alleine ist, als auch, wenn du zu Hause bist" },
+
+  { id: 17, kategorie: "Reaktion auf aeussere Reize (z.B. Menschen, Hunde, Katzen, Geraeusche). Wenn moeglich, notiere worauf dein Hund reagiert", text: "Als Reaktion auf aeussere Reize: Erschreckt sich und beruhigt sich nicht innerhalb von wenigen Minuten" },
+  { id: 18, kategorie: "", text: "Als Reaktion auf aeussere Reize: Winselt, bellt oder heult fuer mehrere Minuten" },
+  { id: 19, kategorie: "", text: "Als Reaktion auf aeussere Reize: Nimmt kleine oder mittelgrosse Gegenstaende ins Maul" },
+  { id: 20, kategorie: "", text: "Als Reaktion auf aeussere Reize: Kratzt oder kaut grosse, weiche Gegenstaende, z.B. Sofa oder Kissen" },
+  { id: 21, kategorie: "", text: "Als Reaktion auf aeussere Reize: Springt hoch an Fenster oder Tuer oder kratzt" },
+
+  { id: 22, kategorie: "Fressverhalten", text: "Frisst Futter in der Wohnung, waehrend du ausser Haus bist (z.B. Futter aus einem Futterspielzeug oder Kaustange)" },
+  { id: 23, kategorie: "", text: "Waehrend des Fressens in deiner Abwesenheit scheint dein Hund entspannt zu sein. Wenn er fertig mit Fressen ist, zeigt er Furcht, Angst oder Stress" },
+
+  { id: 24, kategorie: "Andere Ursachen", text: "Urin- oder Kotabsatz in der Wohnung tritt nicht nur auf, wenn dein Hund alleine ist, sondern auch, wenn du zu Hause bist" },
+  { id: 25, kategorie: "", text: "Zerstoert Gegenstaende sowohl wenn dein Hund alleine ist, als auch, wenn du zu Hause bist" },
   { id: 26, kategorie: "", text: "Die Trennungsprobleme meines Hundes sind mehr oder weniger stark ausgepraegt, je nachdem wie viel Auslastung er hatte" },
   { id: 27, kategorie: "", text: "Die Trennungsprobleme meines Hundes sind mehr oder weniger stark ausgepraegt, je nachdem zu welcher Tageszeit ich ihn alleine lasse" },
-  { id: 28, kategorie: "", text: "Mein Hund hat ein Gesundheitsproblem, dass ihm Unbehagen, Juckreiz oder Schmerzen bereitet " },
+  { id: 28, kategorie: "", text: "Mein Hund hat ein Gesundheitsproblem, das ihm Unbehagen, Juckreiz oder Schmerzen bereitet" },
   { id: 29, kategorie: "", text: "Der Gesundheitszustand meines Hundes hat sich kuerzlich verschlechtert" },
   { id: 30, kategorie: "", text: "Mein Hund hat in letzter Zeit eine wichtige Veraenderung in seiner Umgebung erlebt (z.B. Umzug oder Verlust eines Familienmitglieds)" }
 ];
 
-// Antwortskala aus deiner Excel (Abschnitt 1) – volle, sehr ausführliche Labels
-// (Hier 6 Optionen; fuer andere Abschnitte bitte jeweils die Originalskalen aus der Excel uebernehmen.)
+// Skala Abschnitt 1 (Dauer / Hauefigkeit – 6 Optionen)
 const abschnitt1Skala = [
-  "Fuer 5-30 Minuten, dann beruhigt mein Hund sich.",
+  "Fuer 5–30 Minuten, dann beruhigt mein Hund sich.",
   "Fuer laenger als 30 Minuten.",
   "Ab und zu.  Dazwischen entspannt sich mein Hund.",
   "Nie.",
@@ -47,8 +56,73 @@ const abschnitt1Skala = [
   "Ich bin mir nicht sicher."
 ];
 
-// --- Fragebogen-Seiten definieren ---
-// Aktuell: Meta + Abschnitt 1 (1–30). Spaeter: weitere Abschnitte 2–6 hier ergaenzen.
+// ----------------------
+// Abschnitte 2–4: 31–39 (Frequenzskala)
+// ----------------------
+
+// Abschnitt 2: Verhalten bevor du das Haus verlaesst (31–34)
+const abschnitt2Fragen = [
+  { id: 31, kategorie: "Vor dem Weggehen", text: "Mein Hund folgt mir im Haus ueberall hin" },
+  { id: 32, kategorie: "", text: "Winselt, laeuft unruhig hin oder her, zittert oder hechelt" },
+  { id: 33, kategorie: "", text: "Wehrt sich dagegen, an den Ort gebracht zu werden, wo er alleine bleibt (z.B. ein bestimmtes Zimmer oder eine Hundebox)" },
+  { id: 34, kategorie: "", text: "Zeigt aggressives Verhalten (z.B. Knurren oder Schnappen), wenn er an den Ort gebracht wird, wo er alleine bleibt (z.B. Hundebox oder ein bestimmtes Zimmer)" }
+];
+
+// Abschnitt 3: Verhalten, wenn du nach Hause kommst (35)
+const abschnitt3Fragen = [
+  { id: 35, kategorie: "Ankunft zu Hause", text: "Sehr aufgeregt, wenn du nach Hause kommst: springt, bellt und hat sich nach mehreren Minuten noch nicht beruhigt" }
+];
+
+// Abschnitt 4: Verhalten, wenn du zu Hause bist (36–39)
+const abschnitt4Fragen = [
+  { id: 36, kategorie: "Verhalten mit Bezugsperson zu Hause", text: "Ist immer weniger als 2 Meter von mir entfernt" },
+  { id: 37, kategorie: "", text: "Ist immer im selben Raum wie ich" },
+  { id: 38, kategorie: "", text: "Mein Hund zeigt Furcht oder Stress, wenn er nicht im selben Raum sein kann, z.B. hinter einer geschlossenen Tuer oder einem Trenngitter" },
+  { id: 39, kategorie: "", text: "Mein Hund wuerde ein Futterspielzeug liegen lassen, um mir in einen anderen Raum zu folgen" }
+];
+
+// Hauefigkeitsskala fuer Abschnitte 2–5 (5 Optionen)
+const haeufigkeitSkala = [
+  "Jedes Mal",
+  "Manchmal",
+  "Selten",
+  "Nie",
+  "Ich bin mir nicht sicher."
+];
+
+// ----------------------
+// Abschnitt 5: Verhalten in anderen Situationen (40–46)
+// ----------------------
+
+const abschnitt5Fragen = [
+  { id: 40, kategorie: "Frustration", text: "Sehr aufgeregt, wenn jemand an der Tuer ist oder es klingelt; beruhigt sich nach einigen Minuten immer noch nicht" },
+  { id: 41, kategorie: "", text: "Sehr aufgeregt, bellt oder winselt, wenn er eine andere Person oder einen anderen Hund sieht" },
+  { id: 42, kategorie: "", text: "Wenn angeleint, bellt, weint oder springt in die Leine, wenn er einen Hund oder eine andere Person nicht erreichen kann" },
+  { id: 43, kategorie: "", text: "Haeufig, wenn mein Hund nicht sofort bekommt, was er moechte, bellt oder winselt er" },
+  { id: 44, kategorie: "", text: "Wenn er festgehalten wird, z.B. beim Tierarzt oder Hundefriseur, windet sich mein Hund, knurrt, schnappt oder beisst" },
+  { id: 45, kategorie: "Response to noises", text: "Waehrend Gewitter oder Feuerwerk versteckt sich mein Hund, zittert oder zeigt andere Zeichen von Furcht, Angst oder Stress" },
+  { id: 46, kategorie: "", text: "Bei ploetzlichen lauten Geraeuschen versteckt sich mein Hund, zittert oder zeigt andere Zeichen von Furcht, Angst oder Stress" }
+];
+
+// ----------------------
+// Abschnitt 6: Risikoabschaetzung (47–49)
+// ----------------------
+
+const abschnitt6Fragen = [
+  { id: 47, kategorie: "Dringlichkeitsabschaetzung", text: "Ich habe keine andere Wahl als meinen Hund alleine zu lassen, obwohl die Gefahr besteht, dass er sich in meiner Abwesenheit verletzt" },
+  { id: 48, kategorie: "", text: "Ich habe keine andere Wahl als meinen Hund alleine zu lassen, obwohl andere Menschen unter seinem Verhalten oder dem Laerm, den er verursacht, leiden" },
+  { id: 49, kategorie: "", text: "Ich habe keine andere Wahl als meinen Hund alleine zu lassen, obwohl er jedes Mal grosse Anzeichen von Furcht, Angst oder Stress zeigt" }
+];
+
+// Skala Abschnitt 6 (2 Optionen)
+const risikoSkala = [
+  "Trifft zu",
+  "Trifft nicht zu"
+];
+
+// ----------------------
+// Seitenstruktur
+// ----------------------
 
 const pages = [
   {
@@ -90,11 +164,52 @@ const pages = [
     stem: "Bitte bewerte, wie stark diese Aussagen auf deinen Hund zutreffen.",
     questions: abschnitt1Fragen.filter(q => q.id >= 15 && q.id <= 30),
     scale: abschnitt1Skala
+  },
+  {
+    id: "beforeLeave",
+    type: "likert",
+    title: "Abschnitt 2 – Verhalten bevor du das Haus verlaesst (Fragen 31–34)",
+    stem: "Wie haeufig zeigt dein Hund dieses Verhalten, wenn du dich darauf vorbereitest, das Haus zu verlassen?",
+    questions: abschnitt2Fragen,
+    scale: haeufigkeitSkala
+  },
+  {
+    id: "comeHome",
+    type: "likert",
+    title: "Abschnitt 3 – Verhalten, wenn du nach Hause kommst (Frage 35)",
+    stem: "Wie haeufig zeigt dein Hund dieses Verhalten, wenn du nach Hause kommst?",
+    questions: abschnitt3Fragen,
+    scale: haeufigkeitSkala
+  },
+  {
+    id: "atHome",
+    type: "likert",
+    title: "Abschnitt 4 – Verhalten, wenn du zu Hause bist (Fragen 36–39)",
+    stem: "Wie haeufig zeigt dein Hund dieses Verhalten, wenn du zu Hause bist?",
+    questions: abschnitt4Fragen,
+    scale: haeufigkeitSkala
+  },
+  {
+    id: "otherSituations",
+    type: "likert",
+    title: "Abschnitt 5 – Verhalten in anderen Situationen (Fragen 40–46)",
+    stem: "Wie haeufig zeigt dein Hund dieses Verhalten?",
+    questions: abschnitt5Fragen,
+    scale: haeufigkeitSkala
+  },
+  {
+    id: "risk",
+    type: "likert",
+    title: "Abschnitt 6 – Risikoabschaetzung (Fragen 47–49)",
+    stem: "Bitte gib an, ob die folgenden Aussagen auf deine Situation zutreffen.",
+    questions: abschnitt6Fragen,
+    scale: risikoSkala
   }
-  // TODO: Abschnitte 2–6 mit Fragen 31–49 + ihren jeweiligen Originalskalen aus der Excel hinzufuegen
 ];
 
-// --- Zustand / Antworten ---
+// ----------------------
+// Zustand / Antworten
+// ----------------------
 
 let currentPageIndex = 0;
 const antworten = {
@@ -102,7 +217,9 @@ const antworten = {
   items: {} // z.B. { "1": "0", "2": "3", ... } (Index in der Skala)
 };
 
-// --- Rendering-Funktionen ---
+// ----------------------
+// Rendering
+// ----------------------
 
 function renderPage() {
   const container = document.getElementById("questionnaireContainer");
@@ -176,10 +293,9 @@ function renderLikertPage(container, page) {
 
   const legend = document.createElement("p");
   legend.className = "scale-legend";
-  legend.textContent = "Bitte jede Frage beantworten. Die Antwortmoeglichkeiten stehen mit vollem Wortlaut in den Spaltenköpfen.";
+  legend.textContent = "Bitte jede Frage beantworten. Die Antwortmoeglichkeiten stehen mit vollem Wortlaut in den Spaltenkoepfen.";
   container.appendChild(legend);
 
-  // Wrapper für horizontales Scrollen auf kleinen Bildschirmen
   const wrapper = document.createElement("div");
   wrapper.className = "likert-wrapper";
 
@@ -199,13 +315,10 @@ function renderLikertPage(container, page) {
 
   page.scale.forEach((label, index) => {
     const th = document.createElement("th");
-
-    // Index + voller Text
     th.innerHTML = `
       <div class="scale-index">${index + 1}.</div>
       <div class="scale-label">${label}</div>
     `;
-
     headRow.appendChild(th);
   });
 
@@ -258,8 +371,9 @@ function renderLikertPage(container, page) {
   container.appendChild(wrapper);
 }
 
-
-// --- Antworten speichern / Validierung ---
+// ----------------------
+// Antworten speichern + Validierung
+// ----------------------
 
 function saveCurrentPage() {
   const page = pages[currentPageIndex];
@@ -271,7 +385,7 @@ function saveCurrentPage() {
 
     page.fields.forEach(field => {
       if (field.type === "checkbox") {
-        const el = /** @type {HTMLInputElement} */ (document.getElementById(field.id));
+        const el = document.getElementById(field.id);
         const checked = el ? el.checked : false;
         meta[field.id] = checked;
         if (field.required && !checked) {
@@ -279,7 +393,7 @@ function saveCurrentPage() {
           missingFields.push(field.label);
         }
       } else {
-        const el = /** @type {HTMLInputElement} */ (document.getElementById(field.id));
+        const el = document.getElementById(field.id);
         const value = el ? el.value.trim() : "";
         meta[field.id] = value;
         if (field.required && !value) {
@@ -290,7 +404,10 @@ function saveCurrentPage() {
     });
 
     if (!valid) {
-      alert("Bitte fuelle alle Pflichtfelder aus und bestaetige die Einwilligung:\n\n" + missingFields.join("\n"));
+      alert(
+        "Bitte fuelle alle Pflichtfelder aus und bestaetige die Einwilligung:\n\n" +
+        missingFields.join("\n")
+      );
       return false;
     }
 
@@ -325,7 +442,9 @@ function saveCurrentPage() {
   return true;
 }
 
-// --- Navigation ---
+// ----------------------
+// Navigation (mit Scroll nach oben)
+// ----------------------
 
 function updateNavButtons() {
   const prevBtn = document.getElementById("prevBtn");
@@ -342,19 +461,22 @@ function goToNextPage() {
   if (currentPageIndex < pages.length - 1) {
     currentPageIndex++;
     renderPage();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 }
 
 function goToPrevPage() {
-  // optional: auch beim Zurueckspeichern
   saveCurrentPage();
   if (currentPageIndex > 0) {
     currentPageIndex--;
     renderPage();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 }
 
-// --- Bericht erzeugen (PDF-Inhalt = ausgefuelltes Formular) ---
+// ----------------------
+// Bericht / PDF
+// ----------------------
 
 function buildReport() {
   if (!saveCurrentPage()) return;
@@ -370,7 +492,6 @@ function buildReport() {
   const today = new Date();
   const dateStr = today.toLocaleDateString("de-DE");
 
-  // Kopfbereich (Banner) + Basisdaten
   let html = `
     <div class="banner">
       <div class="banner-text">
@@ -397,7 +518,6 @@ function buildReport() {
     </p>
   `;
 
-  // Fuer jede Likert-Seite: Fragen + gewaehlte Antwort anzeigen
   pages.forEach(page => {
     if (page.type !== "likert") return;
 
@@ -426,7 +546,7 @@ function buildReport() {
           <td>${q.id}</td>
           <td>
             ${q.kategorie ? `<div class="kategorie-label">${q.kategorie}</div>` : ""}
-            <div>${q.text.replace(/\n/g, "<br/>")}</div>
+            <div>${q.text}</div>
           </td>
           <td>${label}</td>
         </tr>
@@ -447,7 +567,9 @@ function buildReport() {
   wrapper.scrollIntoView({ behavior: "smooth" });
 }
 
-// --- Initialisierung & PDF-Export ---
+// ----------------------
+// Initialisierung + PDF-Button
+// ----------------------
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("prevBtn").addEventListener("click", goToPrevPage);
