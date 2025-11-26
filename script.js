@@ -176,8 +176,12 @@ function renderLikertPage(container, page) {
 
   const legend = document.createElement("p");
   legend.className = "scale-legend";
-  legend.textContent = "Bitte jede Frage beantworten. Die Antwortmoeglichkeiten sind in den Spalten uebersichtlich abgekürzt, der volle Wortlaut steht als Tooltip (Mauszeiger auf die Ueberschrift halten).";
+  legend.textContent = "Bitte jede Frage beantworten. Die Antwortmoeglichkeiten stehen mit vollem Wortlaut in den Spaltenköpfen.";
   container.appendChild(legend);
+
+  // Wrapper für horizontales Scrollen auf kleinen Bildschirmen
+  const wrapper = document.createElement("div");
+  wrapper.className = "likert-wrapper";
 
   const table = document.createElement("table");
   table.className = "likert-table";
@@ -195,8 +199,13 @@ function renderLikertPage(container, page) {
 
   page.scale.forEach((label, index) => {
     const th = document.createElement("th");
-    th.textContent = (index + 1) + ".";
-    th.title = label; // Volltext als Tooltip
+
+    // Index + voller Text
+    th.innerHTML = `
+      <div class="scale-index">${index + 1}.</div>
+      <div class="scale-label">${label}</div>
+    `;
+
     headRow.appendChild(th);
   });
 
@@ -245,8 +254,10 @@ function renderLikertPage(container, page) {
   });
 
   table.appendChild(tbody);
-  container.appendChild(table);
+  wrapper.appendChild(table);
+  container.appendChild(wrapper);
 }
+
 
 // --- Antworten speichern / Validierung ---
 

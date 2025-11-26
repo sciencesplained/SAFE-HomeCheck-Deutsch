@@ -340,3 +340,53 @@ h2 {
     width: 100%;
   }
 }
+/* Wrapper fuer horizontales Scrollen bei vielen Spalten */
+.likert-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Likert-Tabelle bleibt wie gehabt, nur leicht angepasst */
+.likert-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 700px; /* damit die Spalten etwas Luft haben */
+}
+
+.likert-table th,
+.likert-table td {
+  border: 1px solid #ddd;
+  padding: 4px;
+  text-align: center;
+  vertical-align: top;
+  white-space: normal; /* wichtig: Zeilenumbruch erlauben */
+}
+
+/* Kopfzeile mit Index + vollem Text */
+.scale-index {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.scale-label {
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+/* Textspalte weiter linksbündig */
+.likert-table th:nth-child(2),
+.likert-table td:nth-child(2) {
+  text-align: left;
+}
+
+/* Mobile-Feintuning */
+@media (max-width: 600px) {
+  .likert-table {
+    font-size: 11px;
+    min-width: 650px; /* etwas schmaler, aber weiterhin scrollbar */
+  }
+  .scale-label {
+    font-size: 10px;
+  }
+}
