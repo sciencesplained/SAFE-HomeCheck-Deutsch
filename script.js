@@ -521,6 +521,15 @@ function buildReport() {
   pages.forEach(page => {
     if (page.type !== "likert") return;
 
+    // Manuelle Seitenumbrüche für die PDF-Struktur:
+    // - alone1: erste Seite zusammen mit Deckblatt/Intro
+    // - alone2: neue Seite
+    // - beforeLeave, comeHome, atHome: gemeinsam auf einer Seite
+    // - otherSituations + risk: gemeinsam auf einer Seite
+    if (page.id === "alone2" || page.id === "beforeLeave" || page.id === "otherSituations") {
+      html += `<div class="page-break-before"></div>`;
+    }
+
     html += `
       <div class="page-section">
         <h3>${page.title}</h3>
@@ -559,6 +568,7 @@ function buildReport() {
       </div>
     `;
   });
+
 
   report.innerHTML = html;
 
