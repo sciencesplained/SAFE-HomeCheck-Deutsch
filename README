@@ -1,0 +1,38 @@
+# SAFE Home Check – Separation & Alone-Time Feelings Evaluation
+
+This repository contains the frontend code for the **SAFE Home Check – Separation & Alone-Time Feelings Evaluation**, 
+an owner-facing questionnaire for dogs with trennungsbezogenen Verhaltensproblemen (separation-related problems).
+
+The live version is intended to be used as part of the HappyPlace / SAFE Home Check offering.
+
+---
+
+## What’s in here?
+
+- `index.html` – Single-page web app with the questionnaire and PDF export
+- `script.js` – Questionnaire logic, answer handling and PDF generation
+- `style.css` – Branding and layout (mobile-friendly)
+- Logo and other assets as needed
+
+---
+
+## Licensing
+
+The **HTML, CSS and JavaScript code** in this repository is licensed under the **MIT License** (see [`LICENSE`](./LICENSE)).
+
+> You are welcome to reuse the *code* as a basis for your own projects, adapt it, and extend it under the terms of the MIT license.
+
+However, the following elements are **not** open-licensed and remain fully protected:
+
+- The name **“SAFE Home Check – Separation & Alone-Time Feelings Evaluation”**
+- All questionnaire text and wording (Fragen/Antwortskalen)
+- All branding, design elements, layout concepts specific to HappyPlace / SAFE Home Check
+- All copywriting related to Alexandra Moesta’s professional services and HappyPlace
+
+These elements are:
+
+**© 2025 Alexandra Moesta, Veterinary Behaviourist, DACVB & Adam McNamara. All rights reserved.**
+
+They may **not** be copied, modified, rebranded, or used commercially without prior written permission.
+
+If you are interested in collaboration or licensing the SAFE Home Check content, please contact us directly.
