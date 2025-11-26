@@ -1,0 +1,342 @@
+/* Grundlayout */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  font-family: "Nunito", "Open Sans", Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+}
+
+.page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+  background: #ffffff;
+}
+
+/* Banner oben (mobilfreundlich) */
+
+.top-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #F2CD5C;   /* helles Gelb */
+  border-bottom: 4px solid #A61F69; /* dunkles Pink */
+  border-radius: 8px;
+}
+
+.top-banner-text h1 {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #A61F69;
+}
+
+.top-banner-text h2 {
+  margin: 4px 0 0 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #A400E3;
+}
+
+.tagline {
+  margin: 4px 0 0 0;
+  font-size: 11px;
+  color: #333;
+}
+
+.top-banner-logo img {
+  max-width: 90px;
+  height: auto;
+}
+
+/* Introtext */
+
+.intro {
+  margin-top: 16px;
+  padding: 12px 14px;
+  background: #fff9e6;
+  border-left: 4px solid #F2921D;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Fragebogen-Container */
+
+#questionnaireContainer {
+  margin-top: 18px;
+}
+
+h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Meta-Seite */
+
+.meta-form {
+  margin-top: 12px;
+}
+
+.meta-field {
+  margin-bottom: 10px;
+}
+
+.meta-field label {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.meta-field input[type="text"],
+.meta-field input[type="email"] {
+  width: 100%;
+  max-width: 360px;
+  padding: 4px 6px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.meta-field input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.required-hint {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Likert-Tabelle */
+
+.question-stem {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.scale-legend {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.likert-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.likert-table th,
+.likert-table td {
+  border: 1px solid #ddd;
+  padding: 4px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.likert-table th:nth-child(2),
+.likert-table td:nth-child(2) {
+  text-align: left;
+}
+
+.kategorie-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #A61F69;
+  margin-bottom: 3px;
+}
+
+.likert-cell input {
+  transform: scale(1.05);
+}
+
+/* Navigation */
+
+.nav-buttons {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-buttons button {
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 999px;
+  border: none;
+  background: #F2921D;
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.nav-buttons button:hover {
+  background: #A61F69;
+}
+
+/* Bericht-Container / PDF */
+
+#reportWrapper {
+  margin-top: 24px;
+}
+
+#reportContent {
+  border: 1px solid #A61F69;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 200px;
+  background: white;
+  box-sizing: border-box;
+  overflow: visible !important;
+  height: auto !important;
+  line-height: 1.3;
+  font-size: 10pt !important;
+}
+
+/* Banner im PDF */
+
+.banner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 4px solid #A61F69;
+  border-bottom: 4px solid #A61F69;
+  padding: 10px 15px;
+  background: #F2CD5C;
+}
+
+.banner-title {
+  color: #A61F69;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.banner-subtitle {
+  color: #A400E3;
+  font-size: 12px;
+  margin: 2px 0 0 0;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.banner-credit {
+  margin: 4px 0 0 0;
+  font-size: 9px;
+}
+
+.banner-logo {
+  height: auto;
+  width: 80px;
+}
+
+/* Tabellen im Ergebnis-PDF */
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10pt;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.result-table th,
+.result-table td {
+  border: 1px solid #ddd;
+  padding: 4px;
+  vertical-align: top;
+}
+
+.question-stem-pdf {
+  font-size: 10pt;
+  font-weight: 600;
+}
+
+.page-section {
+  margin-top: 12px;
+}
+
+/* Download-Button */
+
+#downloadBtn {
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 999px;
+  border: none;
+  background: #A400E3;
+  color: #fff;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+#downloadBtn:hover {
+  background: #A61F69;
+}
+
+/* Footer */
+
+.page-footer {
+  margin-top: 24px;
+  font-size: 11px;
+  color: #555;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+}
+
+.page-footer a {
+  color: #A400E3;
+  text-decoration: none;
+}
+
+/* Druckanpassungen */
+
+@media print {
+  #reportContent {
+    height: auto !important;
+    overflow: visible !important;
+    font-size: 6pt !important;
+    line-height: 1.3 !important;
+  }
+  #reportContent h3 {
+    font-size: 10pt !important;
+  }
+  #reportContent h4 {
+    font-size: 8pt !important;
+  }
+  #reportContent p,
+  #reportContent li {
+    font-size: 6pt !important;
+  }
+}
+
+/* Mobile-Layout */
+
+@media (max-width: 600px) {
+  .top-banner {
+    flex-direction: row;
+    align-items: center;
+  }
+  .top-banner-text {
+    flex: 1;
+  }
+  .top-banner-logo {
+    flex-shrink: 0;
+  }
+  .top-banner-logo img {
+    max-width: 70px;
+  }
+
+  #reportContent {
+    width: 100%;
+  }
+}

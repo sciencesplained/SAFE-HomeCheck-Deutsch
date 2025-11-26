@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>SAFE Home Check – Separation & Alone-Time Feelings Evaluation</title>
+
+  <!-- Google Fonts for branding -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- html2pdf für den PDF-Export -->
+  <script src="https://unpkg.com/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Mobile-freundliches Banner mit Logo -->
+    <header class="top-banner">
+      <div class="top-banner-text">
+        <h1>SAFE Home Check</h1>
+        <h2>Separation &amp; Alone-Time Feelings Evaluation</h2>
+        <p class="tagline">
+          Entwickelt von Alexandra Moesta, Veterinary Behaviourist, DACVB ©
+        </p>
+      </div>
+      <div class="top-banner-logo">
+        <!-- Passe den Dateinamen an dein Logo an -->
+        <img src="logoWithLettering.png" alt="HappyPlace Logo" />
+      </div>
+    </header>
+
+    <section class="intro">
+      <p>
+        Der <strong>SAFE Home Check – Separation &amp; Alone-Time Feelings Evaluation</strong> hilft dir,
+        das Verhalten deines Hundes rund um das Alleinebleiben besser zu verstehen.
+      </p>
+      <p>
+        Dieser Fragebogen besteht aus <strong>sechs Abschnitten mit insgesamt 49 Fragen</strong>.
+        Die Beantwortung dauert in der Regel <strong>etwa 5–8 Minuten</strong>.
+      </p>
+      <p>
+        Am Ende erhaeltst du ein <strong>PDF mit deinen Antworten</strong>.
+        Dieses PDF ist besonders nuetzlich, wenn du den Kurs durchlaeufst:
+        Es hilft dir, die fuer dich und deinen Hund <strong>relevantesten Kursinhalte</strong> zu identifizieren
+        und dich auf das passende Training zu konzentrieren.
+      </p>
+      <p>
+        Bitte gib deine <strong>E-Mail-Adresse</strong> an, damit wir dir
+        <strong>Rueckmeldung und Empfehlungen</strong> zur Verbesserung des Wohlbefindens deines Hundes schicken koennen.
+        Bewahre die Ergebnisse waehrend des Kurses auf – sie dienen dir als Orientierung, worauf du dich beim Training
+        besonders konzentrieren moechtest.
+      </p>
+    </section>
+
+    <!-- Hier erscheinen die einzelnen Fragebogen-Seiten -->
+    <div id="questionnaireContainer"></div>
+
+    <!-- Navigation -->
+    <div class="nav-buttons">
+      <button id="prevBtn">Zurueck</button>
+      <button id="nextBtn">Weiter</button>
+      <button id="showReportBtn">PDF-Vorschau anzeigen</button>
+    </div>
+
+    <hr />
+
+    <!-- Bericht + PDF -->
+    <section id="reportWrapper" style="display: none;">
+      <div id="reportContent"></div>
+      <button id="downloadBtn">PDF herunterladen</button>
+    </section>
+
+    <footer class="page-footer">
+      <p>
+        SAFE Home Check – Separation &amp; Alone-Time Feelings Evaluation<br />
+        © 2025 Alexandra Moesta, Veterinary Behaviourist, DACVB –
+        <a href="https://www.linkedin.com/in/alexandra-moesta-32064247/?originalSubdomain=fr" target="_blank" rel="noopener noreferrer">
+          LinkedIn-Profil
+        </a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
